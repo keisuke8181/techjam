@@ -5,16 +5,91 @@
 }
 
 nav{
+    height: 90px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+    color: white;
+    background-color: lightblue;
 }
 
 .nav-list ul {
     display: flex;
     justify-content: end;
-    
+    list-style: none;
 }
 
 .nav-list ul li{
-    padding-left: 20px;
+    padding-left: 40px;
+}
+
+.nav-list ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav-list ul li a:hover{
+    color: #03e3fc;
+}
+
+main div{
+    height: 800px;
+    background: url(img/background-img.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main div p{
+    font-size: 100px;
+    color: white;
+    -webkit-text-stroke: 2px lightblue; 
+    color: white;
+}
+
+main section:first-child{
+    margin: 0;
+}
+
+main section{
+    margin-top: 120px;
+}
+
+main section:first-child h2{
+    padding-left: 0;
+    font-size: 100px;
+    color: white;
+    -webkit-text-stroke: 1px lightblue; 
+    text-align: center;
+}
+
+section h2{
+    font-size: 30px;
+    padding-left: 100px;
+}
+
+section p{
+    padding-left: 100px;
+    margin-bottom: 50px;
+}
+
+.secondary img{
+    margin-left: 400px;
+    width: 200px;
+    height: auto;
+}
+
+.tertiary img{
+    margin-left: 400px;
+    width: 200px;
+    height: auto;
+}
+
+.quaternary img{
+    margin-left: 400px;
+    width: 200px;
+    height: auto;
 }
