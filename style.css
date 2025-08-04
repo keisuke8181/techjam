@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-nav{
+nav {
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -20,20 +20,57 @@ nav{
     list-style: none;
 }
 
-.nav-list ul li{
+.nav-list ul li {
     padding-left: 40px;
 }
 
-.nav-list ul li a{
+.nav-list ul li a {
     color: white;
     text-decoration: none;
 }
 
-.nav-list ul li a:hover{
+.nav-list ul li a:hover {
     color: #03e3fc;
 }
 
-main div{
+.nav-line {    
+    width: 30px;
+    height: 30px;
+    position: relative;
+    display: none;
+}
+
+.nav-line span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.nav-line span::before,
+.nav-line span::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: 0;
+}
+
+.nav-line span::before {
+    top: -8px;
+}
+
+.nav-line span::after {
+    top: 8px;
+}
+
+main div {
     height: 800px;
     background: url(img/background-img.jpg);
     background-size: cover;
@@ -43,82 +80,71 @@ main div{
     align-items: center;
 }
 
-main div p{
+main div p {
     font-size: 100px;
     color: white;
-    -webkit-text-stroke: 2px lightblue; 
+    -webkit-text-stroke: 2px lightblue;
     color: white;
 }
 
-main section:first-child{
+main section:first-child {
     margin: 0;
 }
 
-main section{
+main section {
     margin-top: 120px;
 }
 
-main section:first-child h2{
+main section:first-child h2 {
     padding-left: 0;
     font-size: 100px;
     color: white;
-    -webkit-text-stroke: 1px lightblue; 
+    -webkit-text-stroke: 1px lightblue;
     text-align: center;
 }
 
-section h2{
+section h2 {
     font-size: 30px;
     padding-left: 100px;
 }
 
-section p{
+section p {
     padding-left: 100px;
     margin-bottom: 50px;
 }
 
-.secondary img{
+.secondary img,
+.tertiary img,
+.quaternary img {
     margin-left: 400px;
     width: 200px;
     height: auto;
-}
-
-.tertiary img{
-    margin-left: 400px;
-    width: 200px;
-    height: auto;
-}
-
-.quaternary img{
-    margin-left: 400px;
-    width: 200px;
-    height: auto;
+    
 }
 
 .scroll-to-top {
-    position: fixed; /* 画面に固定する */
-    bottom: 20px; /* 下から20pxの位置 */
-    right: 20px; /* 右から20pxの位置 */
-    display: none; /* 初期状態では非表示にする */
-    
-    /* ボタンのデザイン */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
     width: 70px;
     height: 40px;
-    line-height: 40px; /* テキストを垂直方向に中央揃え */
+    line-height: 40px;
     background-color: #333;
     color: white;
     text-align: center;
     border-radius: 5px;
     text-decoration: none;
-    z-index: 1000; /* 他の要素より手前に表示する */
-    transition: background-color 0.3s; /* ホバー時のアニメーション */
+    z-index: 1000;
+    transition: background-color 0.3s;
 }
 
-footer{
+footer {
     height: 50px;
     background-color: lightblue;
 }
 
-.footer-text{
+.footer-text {
     height: 50px;
     font-size: 10px;
     color: black;
@@ -126,4 +152,104 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+@media screen and (max-width: 481px){ 
+    nav {
+        padding: 0 20px; /* パディングを調整 */
+    }
+    
+    .nav-line {
+        display: block;
+    }
+    
+    .nav-list {
+        display: none;
+    }
+    
+    main div {
+        height: 400px; /* 高さを調整 */
+    }
+
+    main section:first-child h2 {
+        font-size: 60px; /* フォントサイズを調整 */
+        padding: 0 20px; /* パディングを追加 */
+    }
+
+    main div p {
+        font-size: 60px; /* フォントサイズを調整 */
+        padding: 0 20px; /* パディングを追加 */
+    }
+
+    /* セクション全体 */
+    section {
+        margin-top: 60px; /* マージンを調整 */
+    }
+
+    section h2 {
+        font-size: 24px; /* フォントサイズを調整 */
+        padding-left: 20px; /* パディングを調整 */
+        padding-right: 20px; /* 右パディングも追加 */
+    }
+
+    section p {
+        padding-left: 20px; /* パディングを調整 */
+        padding-right: 20px; /* 右パディングも追加 */
+        margin-bottom: 30px; /* マージンを調整 */
+    }
+    .secondary img,
+    .tertiary img,
+    .quaternary img {
+        margin-left: 0; /* マージンをリセット */
+        margin: 0 auto; /* 中央揃え */
+        display: block; /* ブロック要素にして中央揃えを有効にする */
+        width: 150px; /* 幅を調整 */
+        max-width: 80%; /* 最大幅を設定 */
+    }
+            
+    .scroll-to-top {
+        width: 60px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 12px;
+    }
+    .footer-text {
+        font-size: 8px;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    nav {
+        padding: 0 10px;
+    }
+
+    main section:first-child h2 {
+        font-size: 40px;
+        padding: 0 10px;
+    }
+
+    main div p {
+        font-size: 40px;
+        padding: 0 10px;
+    }
+
+    section h2 {
+        font-size: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    section p {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .secondary img,
+    .tertiary img,
+    .quaternary img {
+        width: 120px;
+        max-width: 90%;
+    }
 }
