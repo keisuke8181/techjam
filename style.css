@@ -5,7 +5,7 @@
 }
 
 nav{
-    height: 90px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -92,4 +92,38 @@ section p{
     margin-left: 400px;
     width: 200px;
     height: auto;
+}
+
+.scroll-to-top {
+    position: fixed; /* 画面に固定する */
+    bottom: 20px; /* 下から20pxの位置 */
+    right: 20px; /* 右から20pxの位置 */
+    display: none; /* 初期状態では非表示にする */
+    
+    /* ボタンのデザイン */
+    width: 70px;
+    height: 40px;
+    line-height: 40px; /* テキストを垂直方向に中央揃え */
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    z-index: 1000; /* 他の要素より手前に表示する */
+    transition: background-color 0.3s; /* ホバー時のアニメーション */
+}
+
+footer{
+    height: 50px;
+    background-color: lightblue;
+}
+
+.footer-text{
+    height: 50px;
+    font-size: 10px;
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
