@@ -4,27 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEMP-NOW</title>
+    <title>TEMP-NOW | 現在の気温を美しく表示</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <h1>TEMP</h1>
 
             <div class="nav-list">
                 <ul>
-                    <li><a href="#primary.jump">現在の気温</a></li>
-                    <li><a href="#secondary.jump">体感気温</a></li>
-                    <li><a href="#tertiary.jump">お弁当危険度</a></li>
-                    <li><a href="#quaternary.jump">紫外線レベル</a></li>
-                    <li><a href="">ログイン</a></li>
+                    <li><a href="#primary-jump">現在の気温</a></li>
+                    <li><a href="#secondary-jump">体感気温</a></li>
+                    <li><a href="#tertiary-jump">お弁当危険度</a></li>
+                    <li><a href="#quaternary-jump">紫外線レベル</a></li>
                 </ul>
             </div>
 
@@ -37,45 +34,83 @@
     <main>
         <section class="primary">
             <div class="background-content">
-                <img src="img/background-img.png" alt="背景">
                 <div class="content-text">
-                    <h2 id="primary.jump">現在の気温</h2>
+                    <h2 id="primary-jump">現在の気温</h2>
                     <div class="temperature">
                         <p>37<span>℃</span></p>
                     </div>
                     <div class="details">
-                        <p>湿度 <span>68</span>%</p>
-                        <p>熱中症レベル <span>5</span> (危険)</p>
+                        <div class="detail-card">
+                            <p>湿度</p>
+                            <span>68%</span>
+                        </div>
+                        <div class="detail-card">
+                            <p>熱中症レベル</p>
+                            <span>危険</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
         <section class="secondary">
-            <h2 id="secondary.jump">体感気温</h2>
-            <!-- <div class="secondary-text">
-                <p>投稿件数263件</p>
-                <p>暑さレベル<span>5</span>(猛暑)</p>
-            </div> -->
-            <img src="img/secondary.jpg" alt="">
+            <div class="section-header">
+                <h2 id="secondary-jump">体感気温</h2>
+                <p>実際に感じる温度を可視化します</p>
+            </div>
+            <div class="content-card">
+                <img src="img/secondary.jpg" alt="体感気温のイメージ">
+                <div class="card-content">
+                    <h3>リアルタイム体感温度</h3>
+                    <p>投稿件数263件のデータを基に、現在の体感温度レベルを算出しています。湿度、風速、日射量を総合的に判断した結果をお届けします。</p>
+                    <div class="status-badge">暑さレベル 5 (猛暑)</div>
+                </div>
+            </div>
         </section>
 
         <section class="tertiary">
-            <h2 id="tertiary.jump">お弁当危険度</h2>
-            <!-- <p>あなたのお弁当 危険度<span>13</span>(安心して食べられる)</p> -->
-            <img src="img/tertiary.jpg" alt="">
+            <div class="section-header">
+                <h2 id="tertiary-jump">お弁当危険度</h2>
+                <p>食品安全のための温度管理指標</p>
+            </div>
+            <div class="content-card">
+                <img src="img/tertiary.jpg" alt="お弁当安全性のイメージ">
+                <div class="card-content">
+                    <h3>食品安全性チェック</h3>
+                    <p>現在の気温と湿度から、お弁当などの食品の安全性を評価します。適切な保存方法のアドバイスも提供いたします。</p>
+                    <div class="status-badge">危険度 3 (注意が必要)</div>
+                </div>
+            </div>
         </section>
 
         <section class="quaternary">
-            <h2 id="quaternary.jump">紫外線レベル</h2>
-            <p>あなたの浴びている紫外線は約<span>33%</span>(おおむね少ない)</p>
-            <img src="img/quaternary.jpg" alt="">
+            <div class="section-header">
+                <h2 id="quaternary-jump">紫外線レベル</h2>
+                <p>UV指数と肌への影響を分析</p>
+            </div>
+            <div class="content-card">
+                <img src="img/quaternary.jpg" alt="紫外線レベルのイメージ">
+                <div class="card-content">
+                    <h3>UV指数モニター</h3>
+                    <p>現在の紫外線レベルをリアルタイムで監視し、適切な日焼け対策をお知らせします。外出時の参考にご活用ください。</p>
+                    <div class="status-badge">紫外線 33% (おおむね少ない)</div>
+                </div>
+            </div>
         </section>
-        <a href="#" class="scroll-to-top">TOP</a>
+        
+        <a href="#" class="scroll-to-top">↑</a>
     </main>
 
     <footer>
-        <p class="footer-text">&copy;2025 TEMP</p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#privacy">プライバシーポリシー</a>
+                <a href="#terms">利用規約</a>
+                <a href="#contact">お問い合わせ</a>
+                <a href="#about">About</a>
+            </div>
+            <p class="footer-text">&copy; 2025 TEMP - All rights reserved</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>

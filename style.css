@@ -4,80 +4,136 @@
     box-sizing: border-box;
 }
 
-/* ヘッダーを横並び */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --tertiary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --dark-bg: #0f0f23;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: #b8bcc8;
+    --accent-color: #00d4ff;
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+    --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* グラデーション背景アニメーション */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.2) 0%, transparent 50%);
+    z-index: -1;
+    animation: backgroundMove 20s ease-in-out infinite;
+}
+
+@keyframes backgroundMove {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* ===== HEADER ===== */
 nav {
     height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 80px;
-    color: black;
-    background-color: white;
-    font-family: "Raleway", sans-serif;
+    padding: 0 60px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-/* ヘッダーのメニューを横並び*/
+nav.scrolled {
+    background: rgba(15, 15, 35, 0.9);
+    box-shadow: var(--shadow-light);
+}
+
+nav h1 {
+    font-size: 32px;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
 .nav-list ul {
     display: flex;
     justify-content: end;
     list-style: none;
+    gap: 2rem;
 }
 
-/* ヘッダーメニューの各々、垂直に真ん中並び*/
 .nav-list ul li {
-    margin-left: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 90px;
-    font-weight: 550;
-}
-
-.nav-list ul li:first-child {
-    margin-left: 0;
-}
-
-.nav-list ul li:last-child{
-    width: 140px;
-    height: 50px;
-    background-color: #a9ceec;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .nav-list ul li a {
-    color: black;
+    color: var(--text-primary);
     text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
-/* ヘッダーメニューの色 */
 .nav-list ul li a:hover {
-    color: #a9ceec;
-    border-bottom: 1px solid #a9ceec;
-
-}
-    
-.nav-list ul li:last-child a:hover{
-    color: lightslategray;
-    opacity: 0.5;
-    border-bottom: none;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    transform: translateY(-2px);
 }
 
-/* ヘッダーのスマホの表示の仕方 */
+/* ハンバーガーメニュー */
 .nav-line {    
     width: 30px;
     height: 30px;
     position: relative;
     display: none;
+    cursor: pointer;
+    z-index: 1001;
 }
 
 .nav-line span {
     display: block;
     width: 100%;
-    height: 2px;
-    background: white;
+    height: 3px;
+    background: var(--text-primary);
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
 .nav-line span::before,
@@ -85,399 +141,457 @@ nav {
     content: "";
     display: block;
     width: 100%;
-    height: 2px;
-    background: white;
+    height: 3px;
+    background: var(--text-primary);
     position: absolute;
     left: 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
 .nav-line span::before {
-    top: -8px;
+    top: -10px;
 }
 
 .nav-line span::after {
-    top: 8px;
+    top: 10px;
 }
 
+/* ===== MAIN CONTENT ===== */
+main {
+    margin-top: 80px;
+}
 
-/* 1番目の背景 */
-.background-content {
-    position: relative;
-    height: 600px;
-  }
-
-/* 背景の画像 */
-/* .background-content img {
-    position: absolute;
-    z-index: -1;
-    width: 1000px;
-    height: 600px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 写真の半分ずつずらす
-    opacity: 0.3;
-  } */
+/* ヒーローセクション */
+.primary {
+    margin: 0;
+}
 
 .background-content {
     position: relative;
-    height: 600px;
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), /* 半透明の黒を重ねる */
+    height: 100vh;
+    background: 
+        linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%),
         url('img/background-img.png');
     background-size: cover;
     background-position: center;
-}
-.background-content img {
-    /* この場合は画像が不要になるので削除 */
-    display: none;
-}
-/* 1番目のテキスト */
-
-body {
-    font-family: 'Noto Sans JP', sans-serif;
-}
-
-
-/* --- テキストのデザイン --- */
-.content-text h2 {
-    font-size: 30px;
-    font-weight: 300;
-    margin-bottom: 8px;
-    padding-top: 150px;
-    letter-spacing: 4px; /*行間*/
-    text-align: center;
-}
-
-.temperature {
-    padding-top: 10px;
-    text-align: center;
-    line-height: 1; /* 高さを揃える */
-    margin-bottom: 24px;
-}
-
-.temperature p {
-    font-size: 120px;
-    font-weight: 700;
-}
-
-.temperature span {
-    font-size: 50px;
-    font-weight: 300;
-}
-
-.details {
-    margin-top: 50px;
-}
-
-.details p {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 300;
-    margin-top: 20px ;
-}
-
-.details span {
-    text-align: center;
-    font-weight: 700;
-}
-
-/* .content-text h2 {
-    font-size: 3rem; rem単位で変更
-    color: #555;
-    font-weight: 300; 細めのフォントにする
-}
-.content-text p {
-    font-size: 1.5rem;
-    color: black;
-    line-height: 1.8; 行間を広げる
-}
-
-.content-text {
-    position: relative;
-    z-index: 1;
-    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; 縦方向に並べる
-     */
-/* } */
-
-/* 1番目のテキストのフォント */
-/* .content-text h2 {
-    padding-left: 0;
-    font-size: 50px;
-    color: black;
-
+    overflow: hidden;
 }
 
+.background-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+}
 
+.background-content img {
+    display: none;
+}
 
-.content-text p {
-    padding-left: 0;
-    font-size: 40px;
-    color: black;
+.content-text {
     text-align: center;
-} */
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
 
+.content-text h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.temperature {
+    margin: 3rem 0;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.4s;
+}
+
+.temperature p {
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.temperature span {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 400;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.6s;
+}
+
+.detail-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.6s;
+}
+
+.detail-card:hover::before {
+    left: 100%;
+}
+
+.detail-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.detail-card p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.detail-card span {
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--secondary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+}
+
+/* セクション共通スタイル */
+.secondary, .tertiary, .quaternary {
+    max-width: 1200px;
+    margin: 8rem auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.content-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.content-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.content-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.content-card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.card-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.status-badge {
+    display: inline-block;
+    background: var(--tertiary-gradient);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
 
 /* スクロールボタン */
 .scroll-to-top {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     display: none;
-    width: 70px;
-    height: 40px;
-    line-height: 40px;
-    background-color: #333;
+    width: 60px;
+    height: 60px;
+    background: var(--tertiary-gradient);
     color: white;
     text-align: center;
-    border-radius: 5px;
+    line-height: 60px;
+    border-radius: 50%;
     text-decoration: none;
     z-index: 1000;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light);
+    font-size: 18px;
 }
 
-/* section 2番目から　テキスト */
-
-.secondary, .tertiary, .quaternary{
-    margin: 0 auto;
-    width: 1000px;
-    margin-top: 60px;
-    text-align: left;
+.scroll-to-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: var(--shadow-heavy);
 }
 
-.primary {
-    margin: 0 40px;
-}
-
-.secondary-text{
-    margin-top: 40px;
-}
-
-.secondary-text p:first-child{
-    font-size: 15px;
-    font-weight: 300;
-}
-
-.secondary h2, .tertiary h2, .quaternary h2{
-    font-size: 30px;
-    font-weight: 300;
-    letter-spacing: 4px; /*行間*/
-}
-
-.secondary span {
-    font-size: 30px;
-}
-/* 
-.tertiary span {
-    font-size: 30px;
-} */
-
-.quaternary span {
-    font-size: 30px;
-}
-
-/* 2番目から 画像 */
-.secondary img{
-    width: 1000px;
-    height: auto;
-
-}
-
-.tertiary img{
-    width: 1000px;
-    height: auto;
-}
-
-.quaternary img{
-    width: 1000px;
-    height: auto;
-}
-
-section {
-    margin-bottom: 20px;
-    border-bottom: 2px solid #a6a6a6;
-}
-
-section:last-of-type {
-    border-bottom: none;
-}
-
+/* フッター */
 footer {
-    height: 50px;
-    background-color: lightblue;
+    background: rgba(15, 15, 35, 0.9);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--glass-border);
+    padding: 3rem 0 2rem;
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .footer-text {
-    height: 50px;
-    font-size: 10px;
-    color: black;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
-/* ===== スマホ対応のメディアクエリ ===== */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+/* ===== レスポンシブデザイン ===== */
 @media screen and (max-width: 768px) {
-    /* ヘッダー */
     nav {
         padding: 0 20px;
-        height: 60px;
+        height: 70px;
     }
     
     nav h1 {
         font-size: 24px;
     }
     
-    /* スマホではメニューを非表示にし、ハンバーガーメニューを表示 */
+    main {
+        margin-top: 70px;
+    }
+    
     .nav-list {
-        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(15, 15, 35, 0.95);
+        backdrop-filter: blur(20px);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
+    }
+    
+    .nav-list.active {
+        transform: translateX(0);
+    }
+    
+    .nav-list ul {
+        flex-direction: column;
+        padding: 3rem 2rem;
+        gap: 1rem;
+    }
+    
+    .nav-list ul li {
+        width: 100%;
+        justify-content: flex-start;
     }
     
     .nav-line {
         display: block;
     }
     
-    .nav-line span {
-        background: black; /* スマホでは黒に変更 */
+    .nav-line.active span {
+        background: transparent;
     }
     
-    .nav-line span::before,
-    .nav-line span::after {
-        background: black; /* スマホでは黒に変更 */
+    .nav-line.active span::before {
+        transform: rotate(45deg);
+        top: 0;
     }
     
-    /* メイン背景セクション */
+    .nav-line.active span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    
     .background-content {
-        height: 500px;
-    }
-    
-    .content-text h2 {
-        font-size: 20px;
-        padding-top: 80px;
-        letter-spacing: 2px;
-        margin-bottom: 16px;
-    }
-    
-    .temperature p {
-        font-size: 80px;
-    }
-    
-    .temperature span {
-        font-size: 35px;
+        height: 100vh;
+        padding: 2rem 1rem;
     }
     
     .details {
-        margin-top: 30px;
-    }
-    
-    .details p {
-        font-size: 18px;
-        margin-top: 15px;
-    }
-    
-    /* セクション全般 */
-    .primary {
-        margin: 0 20px;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 3rem;
     }
     
     .secondary, .tertiary, .quaternary {
-        width: calc(100% - 40px);
-        margin: 40px 20px 20px 20px;
+        margin: 4rem auto;
+        padding: 0 1rem;
     }
     
-    .secondary h2, .tertiary h2, .quaternary h2 {
-        font-size: 20px;
-        letter-spacing: 2px;
-        margin-bottom: 20px;
+    .section-header {
+        margin-bottom: 2rem;
     }
     
-    .secondary span, .quaternary span {
-        font-size: 20px;
-    }
-    
-    /* 画像 */
-    .secondary img, .tertiary img, .quaternary img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* quaternaryのテキスト */
-    .quaternary p {
-        font-size: 16px;
-        margin-bottom: 20px;
-        line-height: 1.6;
-    }
-    
-    /* スクロールボタン */
     .scroll-to-top {
         width: 50px;
-        height: 30px;
-        line-height: 30px;
-        bottom: 15px;
-        right: 15px;
-        font-size: 12px;
+        height: 50px;
+        line-height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 16px;
     }
     
-    /* フッター */
-    footer {
-        height: 40px;
-    }
-    
-    .footer-text {
-        height: 40px;
-        font-size: 8px;
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }
 
-/* より小さなスマホ（480px以下）への対応 */
 @media screen and (max-width: 480px) {
     nav {
         padding: 0 15px;
-        height: 50px;
+        height: 60px;
     }
     
     nav h1 {
         font-size: 20px;
     }
     
+    main {
+        margin-top: 60px;
+    }
+    
+    .nav-list {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    .nav-list ul {
+        padding: 2rem 1rem;
+    }
+    
     .background-content {
-        height: 400px;
+        height: 90vh;
+        padding: 1rem;
     }
     
-    .content-text h2 {
-        font-size: 18px;
-        padding-top: 60px;
-        letter-spacing: 1px;
+    .content-text {
+        padding: 0 1rem;
     }
     
-    .temperature p {
-        font-size: 60px;
-    }
-    
-    .temperature span {
-        font-size: 25px;
-    }
-    
-    .details p {
-        font-size: 16px;
+    .detail-card {
+        padding: 1.5rem;
     }
     
     .secondary, .tertiary, .quaternary {
-        margin: 30px 15px 15px 15px;
-        width: calc(100% - 30px);
+        margin: 3rem auto;
     }
     
-    .secondary h2, .tertiary h2, .quaternary h2 {
-        font-size: 18px;
-        letter-spacing: 1px;
+    .section-header {
+        margin-bottom: 1.5rem;
     }
     
-    .quaternary p {
-        font-size: 14px;
+    .card-content {
+        padding: 1.5rem;
     }
 }
