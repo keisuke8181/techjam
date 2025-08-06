@@ -4,48 +4,64 @@
     box-sizing: border-box;
 }
 
+/* ヘッダーを横並び */
 nav {
     height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 100px;
-    color: white;
-    background-color: lightblue;
+    padding: 0 80px;
+    color: black;
+    background-color: white;
+    font-family: "Raleway", sans-serif;
 }
 
+/* ヘッダーのメニューを横並び*/
 .nav-list ul {
     display: flex;
     justify-content: end;
     list-style: none;
 }
 
+/* ヘッダーメニューの各々、垂直に真ん中並び*/
 .nav-list ul li {
-    width: 120px;
-    height: 30px;
-    margin-left: 40px;
-    background-color: aliceblue;
+    margin-left: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 90px;
+    font-weight: 550;
 }
 
 .nav-list ul li:first-child {
     margin-left: 0;
 }
 
-.nav-list ul li a {
+.nav-list ul li:last-child{
+    width: 140px;
+    height: 50px;
+    background-color: #a9ceec;
+}
 
+.nav-list ul li a {
     color: black;
     text-decoration: none;
 }
 
+/* ヘッダーメニューの色 */
 .nav-list ul li a:hover {
-    color: #03e3fc;
+    color: #a9ceec;
+    border-bottom: 1px solid #a9ceec;
+
+}
+    
+.nav-list ul li:last-child a:hover{
+    color: lightslategray;
+    opacity: 0.5;
+    border-bottom: none;
 }
 
-
+/* ヘッダーのスマホの表示の仕方 */
 .nav-line {    
     width: 30px;
     height: 30px;
@@ -83,72 +99,128 @@ nav {
     top: 8px;
 }
 
-.primary {
-    height: 800px;
-    background: url(img/background-img.jpg), rgba(0, 0, 0, 0.1);
-    /* rgbaが反映されない */
+/* 1番目の背景 */
+.background-content {
+    position: relative;
+    height: 600px;
+  }
+
+/* 背景の画像 */
+/* .background-content img {
+    position: absolute;
+    z-index: -1;
+    width: 1000px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 写真の半分ずつずらす
+    opacity: 0.3;
+  } */
+
+.background-content {
+    position: relative;
+    height: 600px;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), /* 半透明の黒を重ねる */
+        url('img/background-img.png');
     background-size: cover;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+.background-content img {
+    /* この場合は画像が不要になるので削除 */
+    display: none;
+}
+/* 1番目のテキスト */
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-main section:first-child {
-    margin: 0;
-}
 
-main section {
-    margin-top: 120px;
-}
-
-.primary h2 {
-    padding-left: 0;
-    font-size: 100px;
-    color: red;
-    -webkit-text-stroke: 1px black;
-    text-align: center;
-}
-
-.primary p {
-    padding-left: 0;
-    font-size: 60px;
-    color: red;
-    -webkit-text-stroke: 1px black;
-    text-align: center;
-}
-
-section h2 {
+/* --- テキストのデザイン --- */
+.content-text h2 {
     font-size: 30px;
-    padding-left: 100px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    padding-top: 150px;
+    letter-spacing: 4px; /*行間*/
+    text-align: center;
 }
 
-section p {
-    padding-left: 100px;
-    margin-bottom: 50px;
+.temperature {
+    padding-top: 10px;
+    text-align: center;
+    line-height: 1; /* 高さを揃える */
+    margin-bottom: 24px;
 }
 
-.secondary {
-    height: 800px;
-    background: url(img/secondary.jpg);
-    background-size: cover;
-    background-position: center;
+.temperature p {
+    font-size: 120px;
+    font-weight: 700;
 }
 
-.tertiary {
-    height: 800px;
-    background: url(img/tertiary.jpg);
-    background-size: cover;
-    background-position: center;
+.temperature span {
+    font-size: 50px;
+    font-weight: 300;
 }
 
-.quaternary {
-    height: 800px;
-    background: url(img/quaternary.jpeg);
-    background-size: cover;
-    background-position: center;
+.details {
+    margin-top: 50px;
 }
 
+.details p {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+    margin-top: 20px ;
+}
+
+.details span {
+    text-align: center;
+    font-weight: 700;
+}
+
+/* .content-text h2 {
+    font-size: 3rem; rem単位で変更
+    color: #555;
+    font-weight: 300; 細めのフォントにする
+}
+.content-text p {
+    font-size: 1.5rem;
+    color: black;
+    line-height: 1.8; 行間を広げる
+}
+
+.content-text {
+    position: relative;
+    z-index: 1;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 縦方向に並べる
+     */
+/* } */
+
+/* 1番目のテキストのフォント */
+/* .content-text h2 {
+    padding-left: 0;
+    font-size: 50px;
+    color: black;
+
+}
+
+
+
+.content-text p {
+    padding-left: 0;
+    font-size: 40px;
+    color: black;
+    text-align: center;
+} */
+
+
+/* スクロールボタン */
 .scroll-to-top {
     position: fixed;
     bottom: 20px;
@@ -164,6 +236,45 @@ section p {
     text-decoration: none;
     z-index: 1000;
     transition: background-color 0.3s;
+}
+
+/* section 2番目から */
+
+.secondary, .tertiary, .quaternary{
+    margin: 0 auto;
+    width: 1000px;
+    margin-top: 60px;
+    text-align: left;
+}
+
+.secondary p:first-child{
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.secondary h2, .tertiary h2, .quaternary h2{
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 4px; /*行間*/
+}
+
+.secondary span {
+    font-size: 30px;
+}
+
+.tertiary span {
+    font-size: 30px;
+}
+
+.quaternary span {
+    font-size: 30px;
+}
+
+
+
+.secondary img, .tertiary img, .quaternary img{
+    width: 800px;
+    height: auto;
 }
 
 footer {
@@ -230,22 +341,9 @@ footer {
         margin-bottom: 30px; /* マージンを調整 */
     }
        
-    .secondary {
+    .secondary img, .tertiary img, .quaternary img{
         height: 200px;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .tertiary {
-        height: 200px;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .quaternary {
-        height: 200px;
-        background-size: cover;
-        background-position: center;
+        width: auto;
     }
 
     .scroll-to-top {
