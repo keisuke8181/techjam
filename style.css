@@ -99,6 +99,7 @@ nav {
     top: 8px;
 }
 
+
 /* 1番目の背景 */
 .background-content {
     position: relative;
@@ -238,7 +239,7 @@ body {
     transition: background-color 0.3s;
 }
 
-/* section 2番目から */
+/* section 2番目から　テキスト */
 
 .secondary, .tertiary, .quaternary{
     margin: 0 auto;
@@ -247,8 +248,16 @@ body {
     text-align: left;
 }
 
-.secondary p:first-child{
-    font-size: 30px;
+.primary {
+    margin: 0 40px;
+}
+
+.secondary-text{
+    margin-top: 40px;
+}
+
+.secondary-text p:first-child{
+    font-size: 15px;
     font-weight: 300;
 }
 
@@ -261,20 +270,39 @@ body {
 .secondary span {
     font-size: 30px;
 }
-
+/* 
 .tertiary span {
     font-size: 30px;
-}
+} */
 
 .quaternary span {
     font-size: 30px;
 }
 
-
-
-.secondary img, .tertiary img, .quaternary img{
-    width: 800px;
+/* 2番目から 画像 */
+.secondary img{
+    width: 1000px;
     height: auto;
+
+}
+
+.tertiary img{
+    width: 1000px;
+    height: auto;
+}
+
+.quaternary img{
+    width: 1000px;
+    height: auto;
+}
+
+section {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #a6a6a6;
+}
+
+section:last-of-type {
+    border-bottom: none;
 }
 
 footer {
@@ -292,118 +320,164 @@ footer {
     align-items: center;
 }
 
-
-@media screen and (max-width: 481px){ 
+/* ===== スマホ対応のメディアクエリ ===== */
+@media screen and (max-width: 768px) {
+    /* ヘッダー */
     nav {
-        padding: 0 20px; /* パディングを調整 */
+        padding: 0 20px;
+        height: 60px;
+    }
+    
+    nav h1 {
+        font-size: 24px;
+    }
+    
+    /* スマホではメニューを非表示にし、ハンバーガーメニューを表示 */
+    .nav-list {
+        display: none;
     }
     
     .nav-line {
         display: block;
     }
     
-    .nav-list {
-        display: none;
+    .nav-line span {
+        background: black; /* スマホでは黒に変更 */
     }
     
-    main div {
-        height: 400px; /* 高さを調整 */
+    .nav-line span::before,
+    .nav-line span::after {
+        background: black; /* スマホでは黒に変更 */
     }
-
-    main section:first-child h2 {
-        font-size: 60px; /* フォントサイズを調整 */
-        padding: 0 20px; /* パディングを追加 */
+    
+    /* メイン背景セクション */
+    .background-content {
+        height: 500px;
     }
-
-    main div p {
-        font-size: 60px; /* フォントサイズを調整 */
-        padding: 0 20px; /* パディングを追加 */
+    
+    .content-text h2 {
+        font-size: 20px;
+        padding-top: 80px;
+        letter-spacing: 2px;
+        margin-bottom: 16px;
     }
-
-    .primary p{
-        font-size: 40px;
+    
+    .temperature p {
+        font-size: 80px;
     }
-
-    /* セクション全体 */
-    section {
-        margin-top: 60px; /* マージンを調整 */
+    
+    .temperature span {
+        font-size: 35px;
     }
-
-    section h2 {
-        font-size: 24px; /* フォントサイズを調整 */
-        padding-left: 20px; /* パディングを調整 */
-        padding-right: 20px; /* 右パディングも追加 */
+    
+    .details {
+        margin-top: 30px;
     }
-
-    section p {
-        padding-left: 20px; /* パディングを調整 */
-        padding-right: 20px; /* 右パディングも追加 */
-        margin-bottom: 30px; /* マージンを調整 */
+    
+    .details p {
+        font-size: 18px;
+        margin-top: 15px;
     }
-       
-    .secondary img, .tertiary img, .quaternary img{
-        height: 200px;
-        width: auto;
+    
+    /* セクション全般 */
+    .primary {
+        margin: 0 20px;
     }
-
+    
+    .secondary, .tertiary, .quaternary {
+        width: calc(100% - 40px);
+        margin: 40px 20px 20px 20px;
+    }
+    
+    .secondary h2, .tertiary h2, .quaternary h2 {
+        font-size: 20px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+    
+    .secondary span, .quaternary span {
+        font-size: 20px;
+    }
+    
+    /* 画像 */
+    .secondary img, .tertiary img, .quaternary img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* quaternaryのテキスト */
+    .quaternary p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    
+    /* スクロールボタン */
     .scroll-to-top {
-        width: 60px;
-        height: 35px;
-        line-height: 35px;
+        width: 50px;
+        height: 30px;
+        line-height: 30px;
+        bottom: 15px;
+        right: 15px;
         font-size: 12px;
     }
+    
+    /* フッター */
+    footer {
+        height: 40px;
+    }
+    
     .footer-text {
+        height: 40px;
         font-size: 8px;
-        padding: 0 10px;
     }
 }
 
-@media screen and (max-width: 320px) {
+/* より小さなスマホ（480px以下）への対応 */
+@media screen and (max-width: 480px) {
     nav {
-        padding: 0 10px;
-    }
-
-    main section:first-child h2 {
-        font-size: 40px;
-        padding: 0 10px;
-    }
-
-    main div p {
-        font-size: 40px;
-        padding: 0 10px;
-    }
-
-    .primary p{
-        font-size: 40px;
+        padding: 0 15px;
+        height: 50px;
     }
     
-    section h2 {
+    nav h1 {
         font-size: 20px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    section p {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .secondary {
-        height: 100px;
-        background-size: cover;
-        background-position: center;
     }
     
-    .tertiary {
-        height: 100px;
-        background-size: cover;
-        background-position: center;
+    .background-content {
+        height: 400px;
     }
     
-    .quaternary {
-        height: 100px;
-        background-size: cover;
-        background-position: center;
+    .content-text h2 {
+        font-size: 18px;
+        padding-top: 60px;
+        letter-spacing: 1px;
     }
-
+    
+    .temperature p {
+        font-size: 60px;
+    }
+    
+    .temperature span {
+        font-size: 25px;
+    }
+    
+    .details p {
+        font-size: 16px;
+    }
+    
+    .secondary, .tertiary, .quaternary {
+        margin: 30px 15px 15px 15px;
+        width: calc(100% - 30px);
+    }
+    
+    .secondary h2, .tertiary h2, .quaternary h2 {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+    
+    .quaternary p {
+        font-size: 14px;
+    }
 }
