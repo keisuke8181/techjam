@@ -55,45 +55,125 @@
         
         <section class="secondary">
             <div class="section-header">
-                <h2 id="secondary-jump">体感気温</h2>
-                <p>実際に感じる温度を可視化します</p>
+                <h2 id="secondary-jump">体感温度コミュニティ</h2>
+                <p>みんなで作る、リアルな体感温度データベース</p>
             </div>
             <div class="content-card">
-                <img src="img/secondary.jpg" alt="体感気温のイメージ">
+                <img src="img/secondary.jpg" alt="体感温度投稿のイメージ">
                 <div class="card-content">
-                    <h3>リアルタイム体感温度</h3>
-                    <p>投稿件数263件のデータを基に、現在の体感温度レベルを算出しています。湿度、風速、日射量を総合的に判断した結果をお届けします。</p>
-                    <div class="status-badge">暑さレベル 5 (猛暑)</div>
+                    <h3>体感温度を共有しよう</h3>
+                    <p>現在地の実際の体感温度を投稿して、みんなと情報を共有できます。他のユーザーのリアルな声を参考に、今日の服装や外出計画を立てましょう。</p>
+                    
+                    <div class="temperature-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">263</span>
+                            <span class="stat-label">件の投稿</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">39°C</span>
+                            <span class="stat-label">平均体感温度</span>
+                        </div>
+                    </div>
+                    
+                    <div class="user-comments">
+                        <h4>最近のコメント</h4>
+                        <div class="comment">
+                            <p>"日陰でも汗が止まらない。水分補給必須！"</p>
+                            <span class="comment-author">- 大阪市内より</span>
+                        </div>
+                        <div class="comment">
+                            <p>"エアコンなしでは無理な暑さです。"</p>
+                            <span class="comment-author">- 東京23区より</span>
+                        </div>
+                    </div>
+                    
+                    <div class="status-badge">暑さレベル 5 (危険)</div>
+                    <div class="warning-note">
+                        <p><strong>⚠️ 注意:</strong> 投稿された体感温度は個人の感覚に基づくものです。熱中症対策は公式の気象情報も併せてご確認ください。</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="tertiary">
             <div class="section-header">
-                <h2 id="tertiary-jump">お弁当危険度</h2>
-                <p>食品安全のための温度管理指標</p>
+                <h2 id="tertiary-jump">お弁当安全性チェック</h2>
+                <p>時間経過による食品リスクを科学的に分析</p>
             </div>
             <div class="content-card">
-                <img src="img/tertiary.jpg" alt="お弁当安全性のイメージ">
+                <img src="img/tertiary.png" alt="お弁当安全性のイメージ">
                 <div class="card-content">
-                    <h3>食品安全性チェック</h3>
-                    <p>現在の気温と湿度から、お弁当などの食品の安全性を評価します。適切な保存方法のアドバイスも提供いたします。</p>
-                    <div class="status-badge">危険度 3 (注意が必要)</div>
+                    <h3>1時間30分経過したお弁当の状態</h3>
+                    <p>現在の気温37℃、湿度68%の環境下で、お弁当を持参してから1時間30分が経過しています。食品安全の観点から分析した結果をお知らせします。</p>
+                    
+                    <div class="risk-analysis">
+                        <div class="risk-meter">
+                            <div class="risk-bar">
+                                <div class="risk-fill" style="width: 20%"></div>
+                            </div>
+                            <span class="risk-percentage">20%</span>
+                        </div>
+                        <p class="risk-description">細菌繁殖リスクは中程度です</p>
+                    </div>
+                    
+                    <div class="safety-tips">
+                        <h4>推奨される対策</h4>
+                        <ul>
+                            <li>保冷剤の追加を検討してください</li>
+                            <li>直射日光を避けて保管</li>
+                            <li>2時間以内のお召し上がりを推奨</li>
+                            <li>異臭や変色がないか確認してから食べる</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="status-badge warning">危険度 中 (注意が必要)</div>
                 </div>
             </div>
         </section>
 
         <section class="quaternary">
             <div class="section-header">
-                <h2 id="quaternary-jump">紫外線レベル</h2>
-                <p>UV指数と肌への影響を分析</p>
+                <h2 id="quaternary-jump">紫外線防護システム</h2>
+                <p>高性能UV防護で肌を守る</p>
             </div>
             <div class="content-card">
-                <img src="img/quaternary.jpg" alt="紫外線レベルのイメージ">
+                <img src="img/quaternary.jpg" alt="紫外線防護のイメージ">
                 <div class="card-content">
-                    <h3>UV指数モニター</h3>
-                    <p>現在の紫外線レベルをリアルタイムで監視し、適切な日焼け対策をお知らせします。外出時の参考にご活用ください。</p>
-                    <div class="status-badge">紫外線 33% (おおむね少ない)</div>
+                    <h3>98%紫外線カット達成</h3>
+                    <p>現在の紫外線指数と、あなたの現在位置での紫外線防護状況を分析しました。適切な対策により、有害な紫外線の98%をブロックできています。</p>
+                    
+                    <div class="uv-protection">
+                        <div class="protection-circle">
+                            <div class="protection-inner">
+                                <span class="protection-percent">98%</span>
+                                <span class="protection-label">UV BLOCK</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="uv-details">
+                        <div class="uv-item">
+                            <span class="uv-label">現在のUV指数</span>
+                            <span class="uv-value">9 (非常に強い)</span>
+                        </div>
+                        <div class="uv-item">
+                            <span class="uv-label">推定照射量</span>
+                            <span class="uv-value">2% (安全レベル)</span>
+                        </div>
+                        <div class="uv-item">
+                            <span class="uv-label">次の対策まで</span>
+                            <span class="uv-value">3時間</span>
+                        </div>
+                    </div>
+                    
+                    <div class="protection-tips">
+                        <h4>現在の防護状況</h4>
+                        <p>✅ 日焼け止め SPF50+ 適用中<br>
+                        ✅ 帽子・サングラス着用<br>
+                        ✅ 日陰活用で追加防護</p>
+                    </div>
+                    
+                    <div class="status-badge success">防護レベル 優秀</div>
                 </div>
             </div>
         </section>
